@@ -1,0 +1,133 @@
+{
+  "projects": {
+    "GAC": {
+      "description": "广汽/广丰",
+      "output_prefix": "GAC",
+      "base_sim_task_ids": [193645, 193644, 193643, 193642, 193641, 193640, 193639, 193638, 193637, 193636, 193635, 193634], 
+      "test_sim_task_ids": [193645, 193644, 193643, 193642, 193641, 193640, 193639, 193638, 193637, 193636, 193635, 193634],
+      "detail_sheet_fallback": "其他",
+      "detail_sheet_groups": [
+        {
+          "sheet_name": "主动安全worldsim测试详情",
+          "title_keywords": ["主动安全-worldsim"]
+        },
+        {
+          "sheet_name": "泊车worldsim测试详情",
+          "title_keywords": ["泊车APA泊入状态机", "泊车RSPA状态机", "泊车RPA状态机"]
+        },
+        {
+          "sheet_name": "行车worldsim测试详情",
+          "title_keywords": ["行车LCC-Worldsim", "行车HMI-Worldsim", "行车ACC-Worldsim"]
+        },
+        {
+          "sheet_name": "泊车性能worldsim测试详情",
+          "title_keywords": ["泊车性能测试"]
+        },
+        {
+          "sheet_name": "行车性能worldsim测试详情",
+          "title_keywords": ["行车缓慢cutin worldsim性能测试", "行车弯道居中性能测试", "行车跟车巡航性能测试"]
+        },
+        {
+          "sheet_name": "行车功能worldsim测试详情",
+          "title_keywords": ["ACC-仿真支持实车"]
+        }
+      ]
+    },
+    "SAIC_IP5PM": {
+      "description": "上汽",
+      "output_prefix": "SAIC_IP5PM",
+      "base_sim_task_ids": [190243, 190264, 190263],
+      "test_sim_task_ids": [190288, 190289, 190292],
+      "detail_sheet_fallback": "其他",
+      "detail_sheet_groups": [
+        {
+          "sheet_name": "主动安全worldsim测试详情",
+          "title_keywords": ["SAIC_J6B_daily_主动安全-全链路--worldsim", "SAIC_J6B_daily_主动安全HMI-worldsim", "SAIC_J6B_daily_主动安全-worldsim"]
+        },
+        {
+          "sheet_name": "行车worldsim测试详情",
+          "title_keywords": ["SAIC_J6B_daily_行车ACC状态机-Worldsim", "SAIC_J6B_daily_行车LCC状态机-Worldsim", "SAIC_J6B_daily_行车HMI-worldsim", "SAIC_J6B_daily_行泊主功能抑制"]
+        },
+        {
+          "sheet_name": "泊车性能worldsim测试详情",
+          "title_keywords": ["SAIC_J6B_daily_泊车性能场景测试集", "SAIC_J6B_daily_MEB性能测试"]
+        },
+        {
+          "sheet_name": "泊车worldsim测试详情",
+          "title_keywords": ["SAIC_J6B_daily_APA泊入状态机", "SAIC_J6B_daily_APA泊出状态机", "SAIC_J6B_daily_APA-自定义泊车-worldsim", "SAIC_J6B_daily_RPA泊车场景-worldsim", "SAIC_J6B_daily_APA-一键贴边-worldsim", "SAIC_J6B_daily_APA-偏置泊车", "SAIC_J6B_daily_MAI", "SAIC_J6B_daily_MEB", "SAIC_J6B_daily_APA-泊车方向", "SAIC_J6B_daily_RSPA", "SAIC_J6B_daily_EPA-离车泊入", "SAIC_J6B_daily_RPA文言--worldsim", "SAIC_J6B_daily_APAfmm文言-worldsim", "SAIC_J6B_daily_RSPA-FMM文言", "SAIC_J6B_daily_RPA预握手逻辑", "SAIC_J6B_daily_EPA预握手逻辑", "SAIC_J6B_daily_PDC"]
+        },
+        {
+          "sheet_name": "行车性能worldsim测试详情",
+          "title_keywords": ["SAIC_J6B_daily_行车性能场景-弯道场景-wordsim"]
+        },
+        {
+          "sheet_name": "测试详情信息",
+          "title_keywords": ["SAIC_J6B_daily_行车log2world场景"]
+        }
+      ]
+    },
+    "SAIC_AS5PR": {
+      "description": "上汽",
+      "output_prefix": "SAIC_AS5PR",
+      "base_sim_task_ids": [194704, 194703, 194702, 194701, 194700, 194699, 194698, 194697, 194696, 194695, 194694, 194693, 194692, 194691, 194690, 194689, 194688, 194687, 194686, 194685, 194684, 194683, 194682, 194681, 194680, 194679, 194678, 194677],
+      "test_sim_task_ids": [194944, 194943, 194942, 194941, 194940, 194939, 194938, 194937, 194936, 194935, 194934, 194933, 194932, 194931, 194930, 194929, 194928, 194927, 194926, 194925, 194924, 194923, 194922, 194921, 194920, 194919, 194918, 194917],
+      "detail_sheet_fallback": "其他",
+      "detail_sheet_groups": [
+        {
+          "sheet_name": "主动安全worldsim测试详情",
+          "title_keywords": ["SAIC_J6B_AS5PR_daily_主动安全-全链路--worldsim", "SAIC_J6B_AS5PR_daily_主动安全HMI-worldsim", "SAIC_J6B_AS5PR_daily_主动安全-worldsim"]
+        },
+        {
+          "sheet_name": "行车worldsim测试详情",
+          "title_keywords": ["SAIC_J6B_AS5PR_daily_行车ACC状态机-Worldsim", "SAIC_J6B_AS5PR_daily_行车LCC状态机-Worldsim", "SAIC_J6B_AS5PR_daily_行车HMI+功能逻辑", "SAIC_J6B_AS5PR_daily_行泊主功能抑制"]
+        },
+        {
+          "sheet_name": "泊车性能worldsim测试详情",
+          "title_keywords": ["SAIC_J6B_AS5PR_daily_泊车性能场景测试集", "SAIC_J6B_AS5PR_daily_MEB性能测试"]
+        },
+        {
+          "sheet_name": "泊车worldsim测试详情",
+          "title_keywords": ["SAIC_J6B_AS5PR_daily_APA泊入状态机", "SAIC_J6B_AS5PR_daily_APA泊出状态机", "SAIC_J6B_AS5PR_daily_APA-自定义泊车-worldsim", "SAIC_J6B_AS5PR_daily_RPA泊车场景-worldsim", "SAIC_J6B_AS5PR_daily_APA-一键贴边-worldsim", "SAIC_J6B_AS5PR_daily_APA-偏置泊车", "SAIC_J6B_AS5PR_daily_MAI", "SAIC_J6B_AS5PR_daily_MEB", "SAIC_J6B_AS5PR_daily_APA-泊车方向", "SAIC_J6B_AS5PR_daily_RSPA", "SAIC_J6B_AS5PR_daily_EPA-离车泊入", "SAIC_J6B_AS5PR_daily_RPA文言--worldsim", "SAIC_J6B_AS5PR_daily_APAfmm文言-worldsim", "SAIC_J6B_AS5PR_daily_RSPA-FMM文言", "SAIC_J6B_AS5PR_daily_RPA预握手逻辑", "SAIC_J6B_AS5PR_daily_EPA预握手逻辑", "SAIC_J6B_AS5PR_daily_PDC"]
+        },
+        {
+          "sheet_name": "行车性能worldsim测试详情",
+          "title_keywords": ["SAIC_J6B_AS5PR_daily_行车性能场景-弯道场景-wordsim"]
+        },
+        {
+          "sheet_name": "测试详情信息",
+          "title_keywords": ["SAIC_J6B_AS5PR_daily_行车log2world场景"]
+        }
+      ]
+    },
+    "BAIC": {
+      "description": "北汽",
+      "output_prefix": "BAIC",
+      "base_sim_task_ids": [179363, 179362, 179361, 179360, 179359, 179358, 179357, 179356, 179355, 179354, 179353, 179352, 179351, 179350, 179349, 179348, 179347, 179346, 179345, 179344, 179343, 179342, 179341, 179340, 179339, 179338],
+      "test_sim_task_ids": [179740, 179739, 179738, 179737, 179736, 179735, 179734, 179733, 179732, 179731, 179730, 179729, 179728, 179727, 179726, 179725, 179724, 179723, 179722, 179721, 179720, 179719, 179718, 179717, 179716, 179715],
+      "detail_sheet_fallback": "其他",
+      "detail_sheet_groups": [
+        {
+          "sheet_name": "主动安全worldsim测试详情",
+          "title_keywords": ["主动安全worldsim"]
+        },
+        {
+          "sheet_name": "泊车worldsim测试详情",
+          "title_keywords": ["泊车状态机worldsim", "北汽泊车HMI", "行泊主功能交互"]
+        },
+        {
+          "sheet_name": "行车worldsim测试详情",
+          "title_keywords": ["行车状态机worldsim", "北汽行车HMI"]
+        },
+        {
+          "sheet_name": "泊车性能worldsim测试详情",
+          "title_keywords": ["泊车性能测试"]
+        },
+        {
+          "sheet_name": "行车性能worldsim测试详情",
+          "title_keywords": ["行车性能测试"]
+        }
+      ]
+    }
+  },
+  "default_project": "SAIC"
+}
