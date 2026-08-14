@@ -1,0 +1,13 @@
+# 仿真测试结果对比工具 —— 直接依赖
+#
+# 安装：
+#   python3 -m venv .venv
+#   .venv/bin/pip install -r requirements.txt
+#
+# 下面的版本即当前验证通过的版本（Python 3.12.3）。更低版本大概率也能用，
+# 但未做验证，故以此为下限。
+# 单元测试只用标准库 unittest，无需额外依赖。
+
+pandas>=3.0.5        # 明细表/汇总表构建、Excel 读写
+openpyxl>=3.1.5      # pandas 写 .xlsx 所需的引擎
+requests>=2.34.2     # 调用 PGSim 平台接口
