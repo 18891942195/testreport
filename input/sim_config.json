@@ -69,8 +69,8 @@
     "SAIC_AS5PR": {
       "description": "上汽",
       "output_prefix": "SAIC_AS5PR",
-      "base_sim_task_ids": [195153, 195152, 195151, 195150, 195149, 195148, 195147, 195146, 195145, 195144, 195143, 195142, 195141, 195140, 195139, 195138, 195137, 195136, 195135, 195134, 195133, 195132, 195131, 195130, 195129, 195128, 195127, 195126],
-      "test_sim_task_ids": [195286, 195285, 195284, 195283, 195282, 195281, 195280, 195279, 195278, 195277, 195276, 195275, 195274, 195273, 195272, 195271, 195270, 195269, 195268, 195267, 195266, 195265, 195264, 195263, 195262, 195261, 195260, 195259],
+      "base_sim_task_ids": [197376, 197375, 197374, 197373, 197372, 197371, 197370, 197369, 197368, 197367, 197366, 197365, 197364, 197363, 197362, 197361, 197360, 197359, 197358, 197357, 197356, 197355, 197354, 197353, 197352, 197351, 197350, 197349, 197348],
+      "test_sim_task_ids": [197662, 197661, 197660, 197659, 197658, 197657, 197656, 197655, 197654, 197653, 197652, 197651, 197650, 197649, 197648, 197647, 197646, 197645, 197644, 197643, 197642, 197641, 197640, 197639, 197638, 197637, 197636, 197635, 197634],
       "detail_sheet_fallback": "其他",
       "detail_sheet_groups": [
         {
@@ -87,7 +87,7 @@
         },
         {
           "sheet_name": "泊车worldsim测试详情",
-          "title_keywords": ["SAIC_J6B_AS5PR_daily_APA泊入状态机", "SAIC_J6B_AS5PR_daily_APA泊出状态机", "SAIC_J6B_AS5PR_daily_APA-自定义泊车-worldsim", "SAIC_J6B_AS5PR_daily_RPA泊车场景-worldsim", "SAIC_J6B_AS5PR_daily_APA-一键贴边-worldsim", "SAIC_J6B_AS5PR_daily_APA-偏置泊车", "SAIC_J6B_AS5PR_daily_MAI", "SAIC_J6B_AS5PR_daily_MEB", "SAIC_J6B_AS5PR_daily_APA-泊车方向", "SAIC_J6B_AS5PR_daily_RSPA", "SAIC_J6B_AS5PR_daily_EPA-离车泊入", "SAIC_J6B_AS5PR_daily_RPA文言--worldsim", "SAIC_J6B_AS5PR_daily_APAfmm文言-worldsim", "SAIC_J6B_AS5PR_daily_RSPA-FMM文言", "SAIC_J6B_AS5PR_daily_RPA预握手逻辑", "SAIC_J6B_AS5PR_daily_EPA预握手逻辑", "SAIC_J6B_AS5PR_daily_PDC"]
+          "title_keywords": ["SAIC_J6B_AS5PR_daily_APA泊入状态机", "SAIC_J6B_AS5PR_daily_APA泊出状态机", "SAIC_J6B_AS5PR_daily_APA-自定义泊车-worldsim", "SAIC_J6B_AS5PR_daily_RPA泊车场景-worldsim", "SAIC_J6B_AS5PR_daily_APA-一键贴边-worldsim", "SAIC_J6B_AS5PR_daily_APA-偏置泊车", "SAIC_J6B_AS5PR_daily_MAI", "SAIC_J6B_AS5PR_daily_MEB", "SAIC_J6B_AS5PR_daily_APA-泊车方向", "SAIC_J6B_AS5PR_daily_RSPA", "SAIC_J6B_AS5PR_daily_EPA-离车泊入", "SAIC_J6B_AS5PR_daily_RPA文言--worldsim", "SAIC_J6B_AS5PR_daily_APAfmm文言-worldsim", "SAIC_J6B_AS5PR_daily_RSPA-FMM文言", "SAIC_J6B_AS5PR_daily_RPA预握手逻辑", "SAIC_J6B_AS5PR_daily_EPA预握手逻辑", "SAIC_J6B_AS5PR_daily_PDC", "SAIC_J6B_AS5PR_daily_RA"]
         },
         {
           "sheet_name": "行车性能worldsim测试详情",
@@ -102,8 +102,8 @@
     "BAIC": {
       "description": "北汽",
       "output_prefix": "BAIC",
-      "base_sim_task_ids": [179363, 179362, 179361, 179360, 179359, 179358, 179357, 179356, 179355, 179354, 179353, 179352, 179351, 179350, 179349, 179348, 179347, 179346, 179345, 179344, 179343, 179342, 179341, 179340, 179339, 179338],
-      "test_sim_task_ids": [179740, 179739, 179738, 179737, 179736, 179735, 179734, 179733, 179732, 179731, 179730, 179729, 179728, 179727, 179726, 179725, 179724, 179723, 179722, 179721, 179720, 179719, 179718, 179717, 179716, 179715],
+      "base_sim_task_ids": [197515],
+      "test_sim_task_ids": [197515],
       "detail_sheet_fallback": "其他",
       "detail_sheet_groups": [
         {
