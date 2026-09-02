@@ -262,6 +262,49 @@ class MatchTaskPairsTest(unittest.TestCase):
         pairs = match_task_pairs(self.TASKS, [1], [11])
         self.assertEqual(pairs, {101: 201})
 
+    def test_containment_match(self):
+        tasks = [
+            {'simTaskId': 1, 'taskName': '任务a', 'gradingTaskId': 101},
+            {'simTaskId': 11, 'taskName': '任务ab', 'gradingTaskId': 201},
+        ]
+        self.assertEqual(match_task_pairs(tasks, [1], [11]), {101: 201})
+
+    def test_containment_does_not_steal_longer_exact(self):
+        """短名不能抢走更具体的精确匹配：任务a↔任务a，任务ab↔任务ab。"""
+        tasks = [
+            {'simTaskId': 1, 'taskName': '任务a', 'gradingTaskId': 101},
+            {'simTaskId': 2, 'taskName': '任务ab', 'gradingTaskId': 102},
+            {'simTaskId': 11, 'taskName': '任务a', 'gradingTaskId': 201},
+            {'simTaskId': 12, 'taskName': '任务ab', 'gradingTaskId': 202},
+        ]
+        self.assertEqual(
+            match_task_pairs(tasks, [1, 2], [11, 12]), {101: 201, 102: 202}
+        )
+
+    def test_containment_prefers_longest(self):
+        """两侧都有包含关系时，更长的名字优先配给更具体的任务。"""
+        tasks = [
+            {'simTaskId': 1, 'taskName': '任务a', 'gradingTaskId': 101},
+            {'simTaskId': 2, 'taskName': '任务ab', 'gradingTaskId': 102},
+            {'simTaskId': 12, 'taskName': '任务ab', 'gradingTaskId': 202},
+        ]
+        self.assertEqual(match_task_pairs(tasks, [1, 2], [12]), {102: 202})
+
+    def test_containment_prefers_closer_length(self):
+        tasks = [
+            {'simTaskId': 1, 'taskName': '任务a', 'gradingTaskId': 101},
+            {'simTaskId': 11, 'taskName': '任务ab', 'gradingTaskId': 201},
+            {'simTaskId': 12, 'taskName': '任务abc', 'gradingTaskId': 202},
+        ]
+        self.assertEqual(match_task_pairs(tasks, [1], [11, 12]), {101: 201})
+
+    def test_empty_task_name_does_not_match(self):
+        tasks = [
+            {'simTaskId': 1, 'taskName': '', 'gradingTaskId': 101},
+            {'simTaskId': 11, 'taskName': '任务ab', 'gradingTaskId': 201},
+        ]
+        self.assertEqual(match_task_pairs(tasks, [1], [11]), {})
+
 
 class SheetGroupingTest(unittest.TestCase):
     GROUPS = (

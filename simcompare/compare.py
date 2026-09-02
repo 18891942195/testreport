@@ -192,17 +192,37 @@ def calculate_statistics(merged_df: pd.DataFrame) -> dict[str, Any]:
     }
 
 
+def _task_names_related(left: Any, right: Any) -> bool:
+    """任务名相同，或一侧包含另一侧（如「任务a」与「任务ab」）。空名不匹配。"""
+    if left is None or right is None:
+        return False
+    a, b = str(left), str(right)
+    return bool(a) and bool(b) and (a == b or a in b or b in a)
+
+
+def _pair_score(base_name: Any, test_name: Any, test_index: int) -> tuple[int, int, int, int]:
+    """配对优先级：精确匹配 > 重叠更长 > 长度更接近 > test 侧更靠后（同名取最后一个）。"""
+    a, b = str(base_name), str(test_name)
+    exact = int(a == b)
+    overlap = min(len(a), len(b))
+    closeness = -abs(len(a) - len(b))
+    return (exact, overlap, closeness, test_index)
+
+
 def match_task_pairs(
     tasks: Iterable[Mapping[str, Any]],
     base_sim_task_ids: Iterable[int],
     test_sim_task_ids: Iterable[int],
 ) -> dict[int, int]:
-    """在全量任务里挑出 base / test 两侧的任务，再按 taskName 相同配对。
+    """在全量任务里挑出 base / test 两侧的任务，再按 taskName 配对。
+
+    优先任务名完全相同；否则若一侧包含另一侧（如「任务a」与「任务ab」）也配成一对。
+    一对多时取最长、最接近的匹配，避免短名抢走更具体的任务。每个任务最多配一次。
 
     注意入参是 **simTaskId**，返回的是 **gradingTaskId** —— 两者不是一回事。
 
     Returns:
-        {base_gradingTaskId: test_gradingTaskId}。test 侧同名任务以最后一个为准
+        {base_gradingTaskId: test_gradingTaskId}。精确同名时 test 侧以最后一个为准
         （与历史的双层循环结果一致）。
     """
     base_ids = set(base_sim_task_ids)
@@ -210,8 +230,7 @@ def match_task_pairs(
 
     # simTaskId -> (taskName, gradingTaskId)
     base_tasks: dict[Any, tuple[Any, Any]] = {}
-    # taskName -> gradingTaskId，用字典替掉原来 O(n²) 的双层循环
-    test_by_name: dict[Any, Any] = {}
+    test_tasks: dict[Any, tuple[Any, Any]] = {}
 
     for task in tasks:
         sim_task_id = task.get('simTaskId')
@@ -220,20 +239,40 @@ def match_task_pairs(
         if sim_task_id in base_ids:
             base_tasks[sim_task_id] = (task_name, grading_task_id)
         if sim_task_id in test_ids:
-            test_by_name[task_name] = grading_task_id
+            test_tasks[sim_task_id] = (task_name, grading_task_id)
 
-    logger.info(f'base 侧任务名: {[name for name, _ in base_tasks.values()]}')
-    logger.info(f'test 侧任务名: {list(test_by_name)}')
+    base_list = list(base_tasks.values())
+    test_list = list(test_tasks.values())
+    logger.info(f'base 侧任务名: {[name for name, _ in base_list]}')
+    logger.info(f'test 侧任务名: {[name for name, _ in test_list]}')
+
+    candidates: list[tuple[tuple[int, int, int, int], int, int]] = []
+    for i, (base_name, _) in enumerate(base_list):
+        for j, (test_name, _) in enumerate(test_list):
+            if _task_names_related(base_name, test_name):
+                candidates.append((_pair_score(base_name, test_name, j), i, j))
+    candidates.sort(key=lambda item: item[0], reverse=True)
 
     pairs: dict[int, int] = {}
-    for task_name, base_grading_id in base_tasks.values():
-        test_grading_id = test_by_name.get(task_name)
-        if test_grading_id is None:
+    used_base: set[int] = set()
+    used_test: set[int] = set()
+    for _, i, j in candidates:
+        if i in used_base or j in used_test:
             continue
+        used_base.add(i)
+        used_test.add(j)
+        base_name, base_grading_id = base_list[i]
+        test_name, test_grading_id = test_list[j]
         pairs[base_grading_id] = test_grading_id
-        logger.info(
-            f'匹配成功: {task_name} -> base={base_grading_id}, test={test_grading_id}'
-        )
+        if base_name == test_name:
+            logger.info(
+                f'匹配成功: {base_name} -> base={base_grading_id}, test={test_grading_id}'
+            )
+        else:
+            logger.info(
+                f'匹配成功(包含): {base_name} ~ {test_name} -> '
+                f'base={base_grading_id}, test={test_grading_id}'
+            )
 
     logger.info(f'总共找到 {len(pairs)} 对匹配的任务')
     return pairs
