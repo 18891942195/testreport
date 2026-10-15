@@ -15,7 +15,7 @@ import requests
 
 logger = logging.getLogger(__name__)
 
-BASE_URL = 'https://pgsim.phigent.net'
+BASE_URL = 'https://pgsim-phigent.navinfo.com/'
 API_TASK_DETAIL = f'{BASE_URL}/apiv2/sim/grading/task/getTaskRunningDetail'
 API_METRIC_LIST = f'{BASE_URL}/apiv2/metric/getMetricList'
 API_TASK_INFO = f'{BASE_URL}/apiv2/sim/grading/task/getGradingTaskInfo'
